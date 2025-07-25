@@ -166,57 +166,58 @@
 
   try {
     const { data: { text } } = await Tesseract.recognize(file, 'eng', {
-      tessedit_char_whitelist: 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789:@._ ',
-      preserve_interword_spaces: 1,
+      tessedit_char_whitelist: 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@.:=_ ',
+      preserve_interword_spaces: 1
     });
 
     scanPopup.style.display = 'none';
 
-    // Normalisasi hasil teks
-    const rawText = text.toLowerCase();
-    const cleanText = rawText.replace(/[^a-z0-9@._ ]/g, ' ').replace(/\\s+/g, ' ');
+    // Normalisasi: huruf kecil semua dan bersihkan
+    let cleanedText = text.toLowerCase()
+      .replace(/[^a-z0-9@._:=\\s]/g, ' ') // buang simbol aneh
+      .replace(/\\s+/g, ' ') // spasi jadi satu
+      .trim();
 
-    // Ambil data user
     const res = await fetch("https://raw.githubusercontent.com/wanz-code/CreatePanel/main/user.json");
     const users = await res.json();
 
-    // Coba cari user mana yg cocok dari OCR
     let matchUser = null;
 
     for (const user of users) {
       const u = user.username.toLowerCase();
       const p = user.password.toLowerCase();
 
-      // Cek apakah kombinasi username dan password ditemukan dalam teks (urutan bebas)
-      if (cleanText.includes(u) && cleanText.includes(p)) {
+      const uFound = cleanedText.includes(u);
+      const pFound = cleanedText.includes(p);
+
+      if (uFound && pFound) {
         matchUser = user;
         break;
       }
 
-      // Cek kemungkinan terpotong-potong (split)
-      const words = cleanText.split(' ');
-      const foundUser = words.find(w => w.includes(u));
-      const foundPass = words.find(w => w.includes(p));
-      if (foundUser && foundPass) {
+      // Alternatif: fuzzy match (sebagian string ditemukan)
+      const uPart = u.slice(0, 4); // ambil sebagian
+      const pPart = p.slice(0, 3);
+      if (cleanedText.includes(uPart) && cleanedText.includes(pPart)) {
         matchUser = user;
         break;
       }
     }
 
-    if (!matchUser) return showPopup("Gagal deteksi akun, pastikan ID Card terbaca jelas.");
+    if (!matchUser) return showPopup("Gagal deteksi akun dari ID Card.\nPastikan gambar tidak terlalu blur.");
 
     if (matchUser.status === "suspended") return showPopup("Akun Anda disuspend.");
     if (matchUser.status === "expired" || new Date(matchUser.expiresAt) < new Date())
       return showPopup("Akun Anda expired. Silakan perpanjang.");
 
-    showPopup("Login berhasil! Selamat datang.");
+    showPopup(`Login berhasil! Selamat datang, ${matchUser.username}.`);
     setTimeout(() => window.location.href = "login.html", 2000);
 
   } catch (err) {
     scanPopup.style.display = 'none';
     showPopup("Kesalahan saat memindai ID Card.");
   }
-}
+    }
 
     async function checkLogin(username, password) {
       try {
