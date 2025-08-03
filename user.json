@@ -14,5 +14,11 @@
   {
     "username": "adzim",
     "password": "cihuy"
+  },
+  {
+    "username": "wan",
+    "password": "wan",
+    "status": "active",
+    "expiresAt": "no expired"
   }
 ]
