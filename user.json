@@ -20,11 +20,5 @@
     "password": "wan",
     "status": "active",
     "expiresAt": "no expired"
-  },
-  {
-    "username": ".",
-    "password": ".",
-    "status": "active",
-    "expiresAt": "no expired"
   }
 ]
