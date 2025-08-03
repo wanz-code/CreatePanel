@@ -20,5 +20,11 @@
     "password": "wan",
     "status": "active",
     "expiresAt": "no expired"
+  },
+  {
+    "username": "wan",
+    "password": "wan",
+    "status": "active",
+    "expiresAt": "no expired"
   }
 ]
