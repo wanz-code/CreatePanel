@@ -38,5 +38,11 @@
     "password": "satria",
     "status": "active",
     "expiresAt": "no expired"
+  },
+  {
+    "username": "satria",
+    "password": "satria",
+    "status": "active",
+    "expiresAt": "no expired"
   }
 ]
