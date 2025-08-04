@@ -38,5 +38,11 @@
     "password": "exe56",
     "status": "active",
     "expiresAt": "no expired"
+  },
+  {
+    "username": "slime",
+    "password": "slime",
+    "status": "active",
+    "expiresAt": "no expired"
   }
 ]
