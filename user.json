@@ -26,5 +26,11 @@
     "password": "slime",
     "status": "active",
     "expiresAt": "no expired"
+  },
+  {
+    "username": "Free",
+    "password": "Trial",
+    "status": "active",
+    "expiresAt": "2025-09-07T09:34:46.709Z"
   }
 ]
