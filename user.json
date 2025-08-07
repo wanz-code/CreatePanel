@@ -38,5 +38,11 @@
     "password": "Trial",
     "status": "active",
     "expiresAt": "2028-02-07T09:25:35.278Z"
+  },
+  {
+    "username": "Free",
+    "password": "Trial",
+    "status": "active",
+    "expiresAt": "no expired"
   }
 ]
