@@ -50,5 +50,11 @@
     "password": "Trial",
     "status": "active",
     "expiresAt": "no expired"
+  },
+  {
+    "username": "Free",
+    "password": "Trial",
+    "status": "active",
+    "expiresAt": "no expired"
   }
 ]
