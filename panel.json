@@ -1,12 +1,12 @@
 {
   "server1": {
-    "domain": "geisya.slebeww.biz.id",
-    "ptla": "ptla_0YGiLLD27OrOkxj5pqPqc242B5ZNje0yWshjiG0HvOb",
-    "ptlc": "ptlc_ONhlJatJR7Cw2TgvSQ4XUMXCSjpOdi666iIFmh1XOw2"
+    "domain": "publikserver.kantinvps.my.id",
+    "ptla": "ptla_u0j68tuAXcHoVAHZlWq8xXHg3OSPdLkwJ5R5CIMpLP2",
+    "ptlc": "ptlc_nXvyGBGzAJiHRdNJ21lz3WznpvP09nhHNRid2fHcMm4"
   },
   "server2": {
-    "domain": "",
-    "ptla": "",
-    "ptlc": ""
+    "domain": "publikserver.kantinvps.my.id",
+    "ptla": "ptla_u0j68tuAXcHoVAHZlWq8xXHg3OSPdLkwJ5R5CIMpLP2",
+    "ptlc": "ptlc_nXvyGBGzAJiHRdNJ21lz3WznpvP09nhHNRid2fHcMm4"
   }
 }
